@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://airbeat.ru
+Sitemap: https://airbeat.ru/sitemap.xml
