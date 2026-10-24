@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "AirBeat.ru",
+  "short_name": "AirBeat",
+  "description": "AirBeat, AirChord and Arrangement — a private music studio on your device.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#18161f",
+  "theme_color": "#24212b",
+  "icons": [
+    { "src": "/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
