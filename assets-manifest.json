@@ -2,23 +2,23 @@
   "format": "next-static",
   "initialFiles": [
     "_next/static/css/6a9c088ae4eb47dd.css",
-    "_next/static/css/15ddec8950f172b2.css",
+    "_next/static/css/fdf01f0dc7a40920.css",
     "_next/static/chunks/4bd1b696-e199e788e58acf79.js",
     "_next/static/chunks/3794-4471ba88dc13de05.js",
     "_next/static/chunks/main-app-c34d32eb0f111e10.js",
     "_next/static/chunks/8500-107859ed31978aa3.js",
     "_next/static/chunks/app/not-found-cc98b81727c5b99e.js",
     "_next/static/chunks/4280-14a13ef06e866663.js",
-    "_next/static/chunks/1110-97f07de341533402.js",
+    "_next/static/chunks/1110-a289bbdf9a0d03ba.js",
     "_next/static/chunks/app/page-3eb80476b65ba752.js",
-    "_next/static/chunks/webpack-cea17728247bfb10.js"
+    "_next/static/chunks/webpack-4bbaa0e4b99a017c.js"
   ],
-  "initialGzip": 295521,
+  "initialGzip": 297606,
   "assets": [
     {
-      "file": "_next/static/css/15ddec8950f172b2.css",
-      "bytes": 70230,
-      "gzipBytes": 13976
+      "file": "_next/static/css/3ac45f4641dec9e6.css",
+      "bytes": 1525,
+      "gzipBytes": 643
     },
     {
       "file": "_next/static/css/4b4ea83492b8f516.css",
@@ -56,9 +56,14 @@
       "gzipBytes": 631
     },
     {
-      "file": "_next/static/chunks/1110-97f07de341533402.js",
-      "bytes": 262662,
-      "gzipBytes": 85733
+      "file": "_next/static/css/fdf01f0dc7a40920.css",
+      "bytes": 70668,
+      "gzipBytes": 14030
+    },
+    {
+      "file": "_next/static/chunks/1110-a289bbdf9a0d03ba.js",
+      "bytes": 265407,
+      "gzipBytes": 87561
     },
     {
       "file": "_next/static/chunks/1231.cf21871dbcc578de.js",
@@ -76,9 +81,14 @@
       "gzipBytes": 829
     },
     {
-      "file": "_next/static/chunks/2076.8dc238a4e60091fc.js",
-      "bytes": 19662,
-      "gzipBytes": 7108
+      "file": "_next/static/chunks/2076.d267499a361ed6f4.js",
+      "bytes": 19664,
+      "gzipBytes": 7109
+    },
+    {
+      "file": "_next/static/chunks/2166.a08233a7f16ea3a2.js",
+      "bytes": 12831,
+      "gzipBytes": 5157
     },
     {
       "file": "_next/static/chunks/228.8df8628b977bd355.js",
@@ -101,9 +111,9 @@
       "gzipBytes": 7772
     },
     {
-      "file": "_next/static/chunks/3014.b55a20b7f1e3a32e.js",
-      "bytes": 6597,
-      "gzipBytes": 2854
+      "file": "_next/static/chunks/3014.fdeda3a1c840690f.js",
+      "bytes": 6723,
+      "gzipBytes": 2907
     },
     {
       "file": "_next/static/chunks/3482.5b30eeb7d8e68157.js",
@@ -114,6 +124,11 @@
       "file": "_next/static/chunks/3487.5f8c83eab7e12007.js",
       "bytes": 9626,
       "gzipBytes": 4159
+    },
+    {
+      "file": "_next/static/chunks/3610.eb2f0a14c928cb23.js",
+      "bytes": 1136,
+      "gzipBytes": 730
     },
     {
       "file": "_next/static/chunks/3794-4471ba88dc13de05.js",
@@ -146,14 +161,9 @@
       "gzipBytes": 64116
     },
     {
-      "file": "_next/static/chunks/5023.1412cc03c6373944.js",
-      "bytes": 25249,
-      "gzipBytes": 9420
-    },
-    {
-      "file": "_next/static/chunks/5142.cd49c2d63cc7f627.js",
-      "bytes": 1704,
-      "gzipBytes": 781
+      "file": "_next/static/chunks/5023.3ace310a540f0370.js",
+      "bytes": 25251,
+      "gzipBytes": 9421
     },
     {
       "file": "_next/static/chunks/5236.5c40cbf5891fc6d1.js",
@@ -166,9 +176,9 @@
       "gzipBytes": 3245
     },
     {
-      "file": "_next/static/chunks/5755.afee199da1116cbb.js",
-      "bytes": 2949,
-      "gzipBytes": 1343
+      "file": "_next/static/chunks/5755.900cf068f7c05175.js",
+      "bytes": 3001,
+      "gzipBytes": 1375
     },
     {
       "file": "_next/static/chunks/6513.f13fdb6a80260dc7.js",
@@ -241,9 +251,9 @@
       "gzipBytes": 40351
     },
     {
-      "file": "_next/static/chunks/webpack-cea17728247bfb10.js",
-      "bytes": 5478,
-      "gzipBytes": 2754
+      "file": "_next/static/chunks/webpack-4bbaa0e4b99a017c.js",
+      "bytes": 5538,
+      "gzipBytes": 2792
     },
     {
       "file": "_next/static/chunks/next/dist/client/components/builtin/app-error-cb81799edd088bc9.js",
@@ -316,12 +326,12 @@
       "gzipBytes": 148
     },
     {
-      "file": "_next/static/1ASs6KyLIgd34GyRUCy1W/_buildManifest.js",
+      "file": "_next/static/72DG2sfKEKEqs7KmLgq9T/_buildManifest.js",
       "bytes": 709,
       "gzipBytes": 275
     },
     {
-      "file": "_next/static/1ASs6KyLIgd34GyRUCy1W/_ssgManifest.js",
+      "file": "_next/static/72DG2sfKEKEqs7KmLgq9T/_ssgManifest.js",
       "bytes": 119,
       "gzipBytes": 86
     }
