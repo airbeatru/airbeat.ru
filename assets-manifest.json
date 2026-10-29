@@ -1,19 +1,19 @@
 {
   "format": "next-static",
   "initialFiles": [
-    "_next/static/css/6a9c088ae4eb47dd.css",
-    "_next/static/css/8cb63475fac7337e.css",
+    "_next/static/css/82707a7b480d6956.css",
+    "_next/static/css/ff9059ad49981706.css",
     "_next/static/chunks/4bd1b696-e199e788e58acf79.js",
     "_next/static/chunks/3794-4471ba88dc13de05.js",
     "_next/static/chunks/main-app-c34d32eb0f111e10.js",
     "_next/static/chunks/8500-107859ed31978aa3.js",
     "_next/static/chunks/app/not-found-cc98b81727c5b99e.js",
     "_next/static/chunks/4280-14a13ef06e866663.js",
-    "_next/static/chunks/1110-053bfe5a9f91fbd9.js",
+    "_next/static/chunks/1110-d41ffb3d573eccce.js",
     "_next/static/chunks/app/page-3eb80476b65ba752.js",
-    "_next/static/chunks/webpack-d89ada99017ec37b.js"
+    "_next/static/chunks/webpack-5adc027977dcead3.js"
   ],
-  "initialGzip": 297795,
+  "initialGzip": 298003,
   "assets": [
     {
       "file": "_next/static/css/10084abe12ee8f9b.css",
@@ -31,11 +31,6 @@
       "gzipBytes": 327
     },
     {
-      "file": "_next/static/css/6a9c088ae4eb47dd.css",
-      "bytes": 85515,
-      "gzipBytes": 17952
-    },
-    {
       "file": "_next/static/css/6eb0610a4443a55b.css",
       "bytes": 1938,
       "gzipBytes": 704
@@ -46,9 +41,14 @@
       "gzipBytes": 633
     },
     {
-      "file": "_next/static/css/8cb63475fac7337e.css",
-      "bytes": 68093,
-      "gzipBytes": 13618
+      "file": "_next/static/css/82707a7b480d6956.css",
+      "bytes": 86274,
+      "gzipBytes": 18099
+    },
+    {
+      "file": "_next/static/css/8af7635d16925237.css",
+      "bytes": 1566,
+      "gzipBytes": 648
     },
     {
       "file": "_next/static/css/94a5524cd52689bc.css",
@@ -76,9 +76,24 @@
       "gzipBytes": 880
     },
     {
-      "file": "_next/static/chunks/1110-053bfe5a9f91fbd9.js",
-      "bytes": 267781,
-      "gzipBytes": 88057
+      "file": "_next/static/css/eacff6241141a06c.css",
+      "bytes": 1923,
+      "gzipBytes": 783
+    },
+    {
+      "file": "_next/static/css/f949fcc45a5b4ce4.css",
+      "bytes": 3035,
+      "gzipBytes": 1225
+    },
+    {
+      "file": "_next/static/css/ff9059ad49981706.css",
+      "bytes": 63435,
+      "gzipBytes": 12628
+    },
+    {
+      "file": "_next/static/chunks/1110-d41ffb3d573eccce.js",
+      "bytes": 271663,
+      "gzipBytes": 89000
     },
     {
       "file": "_next/static/chunks/1231.cf21871dbcc578de.js",
@@ -101,14 +116,19 @@
       "gzipBytes": 525
     },
     {
+      "file": "_next/static/chunks/2159.a48889952c424c34.js",
+      "bytes": 13548,
+      "gzipBytes": 5246
+    },
+    {
       "file": "_next/static/chunks/2166.a08233a7f16ea3a2.js",
       "bytes": 12831,
       "gzipBytes": 5157
     },
     {
-      "file": "_next/static/chunks/228.aab15a91cb45bbb4.js",
-      "bytes": 10330,
-      "gzipBytes": 4373
+      "file": "_next/static/chunks/228.ad531e806b47a324.js",
+      "bytes": 10387,
+      "gzipBytes": 4400
     },
     {
       "file": "_next/static/chunks/2585.495932664756e45d.js",
@@ -126,9 +146,9 @@
       "gzipBytes": 1672
     },
     {
-      "file": "_next/static/chunks/3487.5f8c83eab7e12007.js",
-      "bytes": 9626,
-      "gzipBytes": 4159
+      "file": "_next/static/chunks/3487.c90ae8662297a384.js",
+      "bytes": 9683,
+      "gzipBytes": 4186
     },
     {
       "file": "_next/static/chunks/3610.8925033fb2764829.js",
@@ -211,14 +231,14 @@
       "gzipBytes": 4208
     },
     {
-      "file": "_next/static/chunks/8193.dd829099a792f434.js",
-      "bytes": 10869,
-      "gzipBytes": 4179
+      "file": "_next/static/chunks/8193.41bf97260fdb32f3.js",
+      "bytes": 10957,
+      "gzipBytes": 4220
     },
     {
-      "file": "_next/static/chunks/8268.0cf82edbe11ffe7d.js",
-      "bytes": 4495,
-      "gzipBytes": 2195
+      "file": "_next/static/chunks/8268.85f2608a640a5faf.js",
+      "bytes": 4519,
+      "gzipBytes": 2208
     },
     {
       "file": "_next/static/chunks/8422.5dead2f28b5999cf.js",
@@ -276,9 +296,9 @@
       "gzipBytes": 40351
     },
     {
-      "file": "_next/static/chunks/webpack-d89ada99017ec37b.js",
-      "bytes": 5692,
-      "gzipBytes": 2895
+      "file": "_next/static/chunks/webpack-5adc027977dcead3.js",
+      "bytes": 5823,
+      "gzipBytes": 2968
     },
     {
       "file": "_next/static/chunks/next/dist/client/components/builtin/app-error-cb81799edd088bc9.js",
@@ -301,9 +321,9 @@
       "gzipBytes": 148
     },
     {
-      "file": "_next/static/chunks/app/layout-2a417d0427260f00.js",
-      "bytes": 1213,
-      "gzipBytes": 321
+      "file": "_next/static/chunks/app/layout-2a19c731557079cc.js",
+      "bytes": 1101,
+      "gzipBytes": 309
     },
     {
       "file": "_next/static/chunks/app/not-found-cc98b81727c5b99e.js",
@@ -351,12 +371,12 @@
       "gzipBytes": 148
     },
     {
-      "file": "_next/static/Woh6K08N2eBZUdMK3qR0y/_buildManifest.js",
+      "file": "_next/static/XEbfoXhiz22U3RXuUpX0n/_buildManifest.js",
       "bytes": 709,
       "gzipBytes": 275
     },
     {
-      "file": "_next/static/Woh6K08N2eBZUdMK3qR0y/_ssgManifest.js",
+      "file": "_next/static/XEbfoXhiz22U3RXuUpX0n/_ssgManifest.js",
       "bytes": 119,
       "gzipBytes": 86
     }
