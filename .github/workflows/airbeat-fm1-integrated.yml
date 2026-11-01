@@ -81,6 +81,13 @@ jobs:
         run: |
           set -euo pipefail
           bash "$RUNNER_TEMP/airbeat-src/tools/run_airbeat_host_integration.sh" "$RUNNER_TEMP/skiff" 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-integration.log"
+      - name: Real Skiff project persistence regression with AIRDRUM
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/skiff"
+          cc -std=gnu11 -O2 -w -DAIRBEAT_ENGINE=1 -DAIRBEAT_DEFAULTS=1 -Ibuild/gen -Ifirmware/src \
+            -o build/host/airbeat_project_test tests/project_test.c -lm
+          build/host/airbeat_project_test 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-project.log"
       - name: Strict built-package verification (not hardware validation)
         run: |
           set -euo pipefail
@@ -98,5 +105,17 @@ jobs:
             ci-airbeat-source.log
             ci-airbeat-target.log
             ci-airbeat-integration.log
+            ci-airbeat-project.log
             ci-airbeat-candidate.json
             ci-airbeat-SHA256SUMS
+      - name: Store experimental candidate for inspection ONLY (NO FLASH)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AIRBEAT-EXPERIMENTAL-CANDIDATE-NOT-DEVICE-TESTED-DO-NOT-FLASH
+          retention-days: 7
+          path: |
+            ${{ runner.temp }}/skiff/build/felucca.elf
+            ${{ runner.temp }}/skiff/build/felucca.bin
+            ${{ runner.temp }}/skiff/build/loader/ota.bin
+            ${{ runner.temp }}/skiff/build/felucca.fwsc
