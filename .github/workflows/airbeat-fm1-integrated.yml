@@ -1,0 +1,86 @@
+name: AirBeat FM-1 Stage 11 integration (EXPERIMENTAL — NO FLASH)
+on:
+  push:
+    branches: [ci/airbeat-fm1-baseline]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  airbeat-integration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    env:
+      JIELI_TOOLCHAIN: ${{ github.workspace }}/.jieli/toolchain
+      AC79_SDK: ${{ github.workspace }}/fw-AC79_AIoT_SDK
+    steps:
+      - name: Checkout isolated integration branch
+        uses: actions/checkout@v4
+      - name: Verify AirBeat source transport and unpack
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/airbeat-src"
+          base64 -d .ci/airbeat-fm1/overlay.tar.xz.b64 > "$RUNNER_TEMP/airbeat-overlay.tar.xz"
+          echo "1d3e81b3cdfe953dc5c3565421250eef4fabc05559bcc56bc60f56f9217b8395  $RUNNER_TEMP/airbeat-overlay.tar.xz" | sha256sum -c -
+          tar -xJf "$RUNNER_TEMP/airbeat-overlay.tar.xz" -C "$RUNNER_TEMP/airbeat-src"
+          echo "64c5ab43537e601642bab69c51896d99c83f6f51520ae1220fa4323bfd78238e  $RUNNER_TEMP/airbeat-src/firmware/eng_airbeat.c" | sha256sum -c -
+      - name: Install Linux dependencies
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends git curl xz-utils python3-pil python3-fonttools
+      - name: Fetch exact upstream Skiff source and JieLi SDK/compiler
+        run: |
+          set -euo pipefail
+          git clone --filter=blob:none https://github.com/illuminus5/skiff.git "$RUNNER_TEMP/skiff"
+          git -C "$RUNNER_TEMP/skiff" checkout --detach 8eb0e273b62d964dc7f53ca78257c19fdc38bd9e
+          test "$(git -C "$RUNNER_TEMP/skiff" rev-parse HEAD)" = 8eb0e273b62d964dc7f53ca78257c19fdc38bd9e
+          bash "$RUNNER_TEMP/skiff/tools/get_toolchain.sh" "$(dirname "$JIELI_TOOLCHAIN")"
+          git clone --depth 1 --branch AC79NN_SDK_V1.2.1_2023-12-13 https://gitee.com/Jieli-Tech/fw-AC79_AIoT_SDK.git "$AC79_SDK"
+          test -x "$JIELI_TOOLCHAIN/pi32v2/bin/clang"
+          test -s "$AC79_SDK/cpu/wl82/tools/uboot.boot"
+      - name: Apply exact AirBeat Stage 6, 7, 8 source patches
+        run: |
+          set -euo pipefail
+          SRC="$RUNNER_TEMP/airbeat-src"
+          SKIFF="$RUNNER_TEMP/skiff"
+          {
+            python3 "$SRC/previous/stage6/tools/apply_stage6.py" "$SKIFF" --check
+            python3 "$SRC/previous/stage6/tools/apply_stage6.py" "$SKIFF"
+            python3 "$SRC/previous/stage7/tools/apply_stage7.py" "$SKIFF" --check
+            python3 "$SRC/previous/stage7/tools/apply_stage7.py" "$SKIFF"
+            python3 "$SRC/tools/apply_stage8.py" "$SKIFF" --check
+            python3 "$SRC/tools/apply_stage8.py" "$SKIFF"
+            python3 "$SRC/tools/verify_source.py" "$SKIFF"
+          } 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-source.log"
+      - name: Compile AirBeat with actual JieLi pi32v2 target
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/skiff"
+          AIRBEAT_ENGINE=1 AIRBEAT_DEFAULTS=1 ./build.sh 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-target.log"
+          test -s build/felucca.bin
+          test -s build/felucca.elf
+          test -s build/felucca.fwsc
+          echo "EXPERIMENTAL BUILD ONLY — NOT CLEARED FOR INSTALLATION"
+      - name: Compile and run real Skiff host integration test with AIRDRUM
+        run: |
+          set -euo pipefail
+          bash "$RUNNER_TEMP/airbeat-src/tools/run_airbeat_host_integration.sh" "$RUNNER_TEMP/skiff" 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-integration.log"
+      - name: Strict built-package verification (not hardware validation)
+        run: |
+          set -euo pipefail
+          python3 "$RUNNER_TEMP/airbeat-src/tools/verify_candidate.py" "$RUNNER_TEMP/skiff" > "$GITHUB_WORKSPACE/ci-airbeat-candidate.json"
+          cat "$GITHUB_WORKSPACE/ci-airbeat-candidate.json"
+          sha256sum "$RUNNER_TEMP/skiff/build/felucca.bin" "$RUNNER_TEMP/skiff/build/felucca.fwsc" > "$GITHUB_WORKSPACE/ci-airbeat-SHA256SUMS"
+      - name: Always upload diagnostics, never auto-flash or release binary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AIRBEAT-FM1-INTEGRATION-LOGS-NOT-FLASHABLE
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            ci-airbeat-source.log
+            ci-airbeat-target.log
+            ci-airbeat-integration.log
+            ci-airbeat-candidate.json
+            ci-airbeat-SHA256SUMS
