@@ -1,0 +1,54 @@
+name: FM-1 JieLi baseline (Skiff only, NO FLASH)
+on:
+  push:
+    branches:
+      - ci/airbeat-fm1-baseline
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  clean-skiff-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    env:
+      JIELI_TOOLCHAIN: ${{ runner.temp }}/jieli/toolchain
+      AC79_SDK: ${{ runner.temp }}/fw-AC79_AIoT_SDK
+    steps:
+      - name: Prepare tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends git curl xz-utils python3-pil python3-fonttools
+      - name: Fetch exact upstream Skiff source
+        run: |
+          set -euo pipefail
+          git clone --filter=blob:none https://github.com/illuminus5/skiff.git "${{ runner.temp }}/skiff"
+          git -C "${{ runner.temp }}/skiff" checkout --detach 8eb0e273b62d964dc7f53ca78257c19fdc38bd9e
+          test "$(git -C "${{ runner.temp }}/skiff" rev-parse HEAD)" = 8eb0e273b62d964dc7f53ca78257c19fdc38bd9e
+      - name: Download official JieLi toolchain and pinned SDK
+        run: |
+          set -euo pipefail
+          mkdir -p "${{ runner.temp }}/jieli"
+          bash "${{ runner.temp }}/skiff/tools/get_toolchain.sh" "${{ runner.temp }}/jieli"
+          git clone --depth 1 --branch AC79NN_SDK_V1.2.1_2023-12-13             https://gitee.com/Jieli-Tech/fw-AC79_AIoT_SDK.git "$AC79_SDK"
+          test -x "$JIELI_TOOLCHAIN/pi32v2/bin/clang"
+          test -s "$AC79_SDK/cpu/wl82/tools/uboot.boot"
+      - name: Compile clean Skiff and capture exact output
+        run: |
+          set -euo pipefail
+          cd "${{ runner.temp }}/skiff"
+          ./build.sh 2>&1 | tee "${{ github.workspace }}/fm1-clean-build.log"
+          test -s build/felucca.bin
+          test -s build/felucca.fwsc
+          sha256sum build/felucca.bin build/felucca.fwsc > "${{ github.workspace }}/fm1-clean-SHA256SUMS"
+          echo "BASELINE ONLY: this is unmodified Skiff, NOT AirBeat. NO HARDWARE FLASH."
+      - name: Upload diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: FM1-skiff-baseline-log-NOT-AIRBEAT
+          if-no-files-found: warn
+          retention-days: 7
+          path: |
+            fm1-clean-build.log
+            fm1-clean-SHA256SUMS
