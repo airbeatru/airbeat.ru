@@ -1,8 +1,5 @@
 name: FM-1 JieLi baseline (Skiff only, NO FLASH)
 on:
-  push:
-    branches:
-      - ci/airbeat-fm1-baseline
   workflow_dispatch:
 permissions:
   contents: read
