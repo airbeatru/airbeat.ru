@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 55
     env:
-      JIELI_TOOLCHAIN: ${{ runner.temp }}/jieli/toolchain
-      AC79_SDK: ${{ runner.temp }}/fw-AC79_AIoT_SDK
+      JIELI_TOOLCHAIN: ${{ github.workspace }}/.jieli/toolchain
+      AC79_SDK: ${{ github.workspace }}/fw-AC79_AIoT_SDK
     steps:
       - name: Prepare tools
         run: |
