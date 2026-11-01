@@ -85,8 +85,26 @@ jobs:
         run: |
           set -euo pipefail
           cd "$RUNNER_TEMP/skiff"
+          # Adapt only TWO legacy test expectations to AirBeat's deliberate
+          # default layout. Keep the actual Skiff migration code untouched.
+          python3 - <<'PYTEST'
+          from pathlib import Path
+          upstream=Path("tests/project_test.c")
+          s=upstream.read_text()
+          replacements={
+              "TRK_DEF[3][0] == ENGI_DRUM && q.t[3].preset": "TRK_DEF[3][0] == 0u && q.t[3].preset",
+              "c.t[1].engine == ENGI_FM6 && c.t[1].preset == PROJ_DEF_SOUND": "c.t[1].engine == ENGI_DRUM && c.t[1].preset == PROJ_DEF_SOUND",
+              "FUN1 with DIGITAL: track 1 FM6 (BELL), track 2 the power-on sound (FM6 now)": "FUN1 with DIGITAL: track 1 FM6 (BELL), AirBeat T2 power-on DRUM",
+          }
+          for old,new in replacements.items():
+              if s.count(old) != 1:
+                  raise SystemExit("Unexpected Skiff project test revision: "+old)
+              s=s.replace(old,new,1)
+          Path("tests/airbeat_project_test.c").write_text(s)
+          print("PASS: legacy project migration fixtures adapted to AirBeat defaults only")
+          PYTEST
           cc -std=gnu11 -O2 -w -DAIRBEAT_ENGINE=1 -DAIRBEAT_DEFAULTS=1 -Ibuild/gen -Ifirmware/src \
-            -o build/host/airbeat_project_test tests/project_test.c -lm
+            -o build/host/airbeat_project_test tests/airbeat_project_test.c -lm
           build/host/airbeat_project_test 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-project.log"
       - name: Strict built-package verification (not hardware validation)
         run: |
