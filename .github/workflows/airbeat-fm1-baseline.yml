@@ -42,6 +42,11 @@ jobs:
           test -s build/felucca.fwsc
           sha256sum build/felucca.bin build/felucca.fwsc > "${{ github.workspace }}/fm1-clean-SHA256SUMS"
           echo "BASELINE ONLY: this is unmodified Skiff, NOT AirBeat. NO HARDWARE FLASH."
+      - name: Run unmodified Skiff host regression suite
+        run: |
+          set -euo pipefail
+          cd "${{ runner.temp }}/skiff"
+          ./tests/run_tests.sh 2>&1 | tee "${{ github.workspace }}/fm1-upstream-host-tests.log"
       - name: Upload diagnostic logs
         if: always()
         uses: actions/upload-artifact@v4
@@ -52,3 +57,4 @@ jobs:
           path: |
             fm1-clean-build.log
             fm1-clean-SHA256SUMS
+            fm1-upstream-host-tests.log
