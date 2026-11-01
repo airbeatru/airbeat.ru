@@ -51,6 +51,22 @@ jobs:
             python3 "$SRC/tools/apply_stage8.py" "$SKIFF" --check
             python3 "$SRC/tools/apply_stage8.py" "$SKIFF"
             python3 "$SRC/tools/verify_source.py" "$SKIFF"
+            # Add a conservative provisional cost for the appended AIRDRUM engine.
+            # The previous 15 entries remain unchanged; real cost needs measurement.
+            python3 - "$SKIFF/firmware/src/fx.c" <<'PYFIX'
+          from pathlib import Path
+          import sys
+          p = Path(sys.argv[1])
+          s = p.read_text()
+          old = '''static const uint16_t ENG_VCOST[NENGINES] = {163, 0, 162, 67, 70, 174, 144, 143, 189, 309, 113, 134, 181, 129, 120};
+          _Static_assert(NENGINES == 15, "ENG_VCOST: a cost per engine");'''
+          new = '''static const uint16_t ENG_VCOST[NENGINES] = {163, 0, 162, 67, 70, 174, 144, 143, 189, 309, 113, 134, 181, 129, 120, 180}; /* AIRDRUM provisional */
+          _Static_assert(NENGINES == 16, "ENG_VCOST: a cost per engine");'''
+          if s.count(old) != 1:
+              raise SystemExit("FAIL: unknown Skiff ENG_VCOST layout; refusing unsafe patch")
+          p.write_text(s.replace(old, new, 1))
+          print("PASS: AIRDRUM entry in CPU2 cost table (provisional weight 180)")
+          PYFIX
           } 2>&1 | tee "$GITHUB_WORKSPACE/ci-airbeat-source.log"
       - name: Compile AirBeat with actual JieLi pi32v2 target
         run: |
