@@ -2,7 +2,7 @@
   "format": "next-static",
   "initialFiles": [
     "_next/static/css/5e9adfce7befc25e.css",
-    "_next/static/css/9a2a470fcef54b08.css",
+    "_next/static/css/59c505f4f96243f9.css",
     "_next/static/chunks/4bd1b696-e199e788e58acf79.js",
     "_next/static/chunks/3794-4471ba88dc13de05.js",
     "_next/static/chunks/main-app-c34d32eb0f111e10.js",
@@ -13,18 +13,8 @@
     "_next/static/chunks/app/page-3eb80476b65ba752.js",
     "_next/static/chunks/webpack-ea744cfeb7dcfe1a.js"
   ],
-  "initialGzip": 297173,
+  "initialGzip": 297164,
   "assets": [
-    {
-      "file": "_next/static/lyO1mIkWzIW8ezRDVvF5Y/_buildManifest.js",
-      "bytes": 862,
-      "gzipBytes": 297
-    },
-    {
-      "file": "_next/static/lyO1mIkWzIW8ezRDVvF5Y/_ssgManifest.js",
-      "bytes": 181,
-      "gzipBytes": 101
-    },
     {
       "file": "_next/static/css/39e408c8211a3e99.css",
       "bytes": 2615,
@@ -39,6 +29,11 @@
       "file": "_next/static/css/3ebbe433bbb4f7b6.css",
       "bytes": 2443,
       "gzipBytes": 859
+    },
+    {
+      "file": "_next/static/css/59c505f4f96243f9.css",
+      "bytes": 95851,
+      "gzipBytes": 17096
     },
     {
       "file": "_next/static/css/5e9adfce7befc25e.css",
@@ -64,11 +59,6 @@
       "file": "_next/static/css/89a1b9924e67e3c0.css",
       "bytes": 1244,
       "gzipBytes": 559
-    },
-    {
-      "file": "_next/static/css/9a2a470fcef54b08.css",
-      "bytes": 96030,
-      "gzipBytes": 17107
     },
     {
       "file": "_next/static/css/a359ca3d800c1efc.css",
@@ -394,6 +384,16 @@
       "file": "_next/static/chunks/app/_global-error/page-cb81799edd088bc9.js",
       "bytes": 165,
       "gzipBytes": 148
+    },
+    {
+      "file": "_next/static/DsqtV-YB4y5ZxgyeWZ1R9/_buildManifest.js",
+      "bytes": 862,
+      "gzipBytes": 297
+    },
+    {
+      "file": "_next/static/DsqtV-YB4y5ZxgyeWZ1R9/_ssgManifest.js",
+      "bytes": 181,
+      "gzipBytes": 101
     }
   ]
 }
