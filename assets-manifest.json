@@ -10,12 +10,22 @@
     "_next/static/chunks/8500-107859ed31978aa3.js",
     "_next/static/chunks/app/not-found-cc98b81727c5b99e.js",
     "_next/static/chunks/4280-2ce4e346d2dc13d7.js",
-    "_next/static/chunks/1110-ad005780c7149113.js",
+    "_next/static/chunks/1110-ec06afdb9e93bdf0.js",
     "_next/static/chunks/app/page-3eb80476b65ba752.js",
-    "_next/static/chunks/webpack-2ab3be6c937604ca.js"
+    "_next/static/chunks/webpack-70995c5ffa744b3b.js"
   ],
-  "initialGzip": 297250,
+  "initialGzip": 297481,
   "assets": [
+    {
+      "file": "_next/static/zS1APNAyFQUQD8z8Oxixf/_buildManifest.js",
+      "bytes": 862,
+      "gzipBytes": 297
+    },
+    {
+      "file": "_next/static/zS1APNAyFQUQD8z8Oxixf/_ssgManifest.js",
+      "bytes": 181,
+      "gzipBytes": 101
+    },
     {
       "file": "_next/static/css/061d04d87b96aeb7.css",
       "bytes": 3138,
@@ -127,9 +137,9 @@
       "gzipBytes": 1309
     },
     {
-      "file": "_next/static/chunks/1110-ad005780c7149113.js",
-      "bytes": 253218,
-      "gzipBytes": 84039
+      "file": "_next/static/chunks/1110-ec06afdb9e93bdf0.js",
+      "bytes": 253762,
+      "gzipBytes": 84266
     },
     {
       "file": "_next/static/chunks/1447.e7f1a8e094fa28b9.js",
@@ -267,11 +277,6 @@
       "gzipBytes": 2733
     },
     {
-      "file": "_next/static/chunks/5755.3263251e3e2fa263.js",
-      "bytes": 3137,
-      "gzipBytes": 1455
-    },
-    {
       "file": "_next/static/chunks/6272.9921bc07ec325a7d.js",
       "bytes": 4311,
       "gzipBytes": 2041
@@ -332,6 +337,11 @@
       "gzipBytes": 6243
     },
     {
+      "file": "_next/static/chunks/9763.39e9f24872d52a89.js",
+      "bytes": 2891,
+      "gzipBytes": 1324
+    },
+    {
       "file": "_next/static/chunks/9925.2b837c32ca80f3f8.js",
       "bytes": 4011,
       "gzipBytes": 2029
@@ -352,7 +362,7 @@
       "gzipBytes": 40351
     },
     {
-      "file": "_next/static/chunks/webpack-2ab3be6c937604ca.js",
+      "file": "_next/static/chunks/webpack-70995c5ffa744b3b.js",
       "bytes": 6130,
       "gzipBytes": 3153
     },
@@ -435,16 +445,6 @@
       "file": "_next/static/chunks/app/_global-error/page-cb81799edd088bc9.js",
       "bytes": 165,
       "gzipBytes": 148
-    },
-    {
-      "file": "_next/static/UpTyJJV_AIi584pYLu0YS/_buildManifest.js",
-      "bytes": 862,
-      "gzipBytes": 297
-    },
-    {
-      "file": "_next/static/UpTyJJV_AIi584pYLu0YS/_ssgManifest.js",
-      "bytes": 181,
-      "gzipBytes": 101
     }
   ]
 }

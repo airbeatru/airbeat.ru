@@ -1,17 +1,17 @@
 {
   "format": "airbeat-offline-v1",
-  "build": "508f0e0406bf523b80e3f1af",
-  "totalBytes": 2736909,
+  "build": "f888151e096b899a77ff5bd1",
+  "totalBytes": 2737207,
   "resources": [
     {
       "url": "/",
       "bytes": 56203,
-      "sha256": "a44bcf3301e928f6a84167bf36016a15b5dc1243423a47caa646eecadafafec9"
+      "sha256": "75b9a5df8ea7ace47bd1a49632d491eb52b2d810382a8a19849c566f7737649c"
     },
     {
       "url": "/ru/",
       "bytes": 64497,
-      "sha256": "1bbd738f588b2a87b7ef1cc95932767008cd8cb2c1f7568f09fbfba98b116f6b"
+      "sha256": "359c9feba7622f236665052e96fba35bfa21317100ade75c5aa0b946e54867f5"
     },
     {
       "url": "/guide/",
@@ -254,6 +254,16 @@
       "sha256": "6543e0b33aa87be503cf1fe71e4485bb0197ef3fb007007edc9cb62b4ce6b029"
     },
     {
+      "url": "/_next/static/zS1APNAyFQUQD8z8Oxixf/_buildManifest.js",
+      "bytes": 862,
+      "sha256": "1f4bf5770384d9dc51f25c4cc3c61f308d18f4dcf5f27f2759602e2a6173ed56"
+    },
+    {
+      "url": "/_next/static/zS1APNAyFQUQD8z8Oxixf/_ssgManifest.js",
+      "bytes": 181,
+      "sha256": "5dfb908eec929d1e5df3461e5e8f8d32169d91aaf416164c081ab36869eb6945"
+    },
+    {
       "url": "/_next/static/css/061d04d87b96aeb7.css",
       "bytes": 3138,
       "sha256": "da013346dc722427624bf4e388cb81393220267c506d76da6f1048a55d67487a"
@@ -364,9 +374,9 @@
       "sha256": "49181585bd5104d7bf5b279261a496fdf8e08703c7f1285a377382181b7aa9fb"
     },
     {
-      "url": "/_next/static/chunks/1110-ad005780c7149113.js",
-      "bytes": 253218,
-      "sha256": "adcc921631690637cc6feeeeea82585668f5d1ec20abdf649d1388e0becf5f1b"
+      "url": "/_next/static/chunks/1110-ec06afdb9e93bdf0.js",
+      "bytes": 253762,
+      "sha256": "d8138c28faa6a29cb5a908d961f6cd26005f3790a8be12d10c156245297b1b95"
     },
     {
       "url": "/_next/static/chunks/1447.e7f1a8e094fa28b9.js",
@@ -504,11 +514,6 @@
       "sha256": "feb46ea5d558e19185c8a80580e209907a167f8266273e7976cda84d8e97aa3e"
     },
     {
-      "url": "/_next/static/chunks/5755.3263251e3e2fa263.js",
-      "bytes": 3137,
-      "sha256": "af664268169c239f9c0315487bb87efd3e75163fa0b860fc63d3e19631da7ad0"
-    },
-    {
       "url": "/_next/static/chunks/6272.9921bc07ec325a7d.js",
       "bytes": 4311,
       "sha256": "28477f4f2d1c5b8e2ceca3d2eeda08724c7efda6f7dcab03b09ae4ce3c310afd"
@@ -569,6 +574,11 @@
       "sha256": "38d54bd87afed162e004fbc2521f74b2c1165b0a81d7b61d175e55d6fa9a4bf0"
     },
     {
+      "url": "/_next/static/chunks/9763.39e9f24872d52a89.js",
+      "bytes": 2891,
+      "sha256": "0bad68852e6108bb5ef3cab795d37c1f6933be877d1a0689cf1341e050093f79"
+    },
+    {
       "url": "/_next/static/chunks/9925.2b837c32ca80f3f8.js",
       "bytes": 4011,
       "sha256": "abdeb7ffa901bfc48a0cd1819eb46bbae258f34bb636b64ede251551c1f87cca"
@@ -589,9 +599,9 @@
       "sha256": "a443ce88cbb31c3e55c41d738d15748136e5a50969dc298f92677b1ec140bfd1"
     },
     {
-      "url": "/_next/static/chunks/webpack-2ab3be6c937604ca.js",
+      "url": "/_next/static/chunks/webpack-70995c5ffa744b3b.js",
       "bytes": 6130,
-      "sha256": "042d4540b262d67325aa92f66190cc11fc294b7bb01924583a728b3a665b2cda"
+      "sha256": "dcebd754b55d00be602a9320148a3c0bf0b4fd9f725e3053e7d217412834a922"
     },
     {
       "url": "/_next/static/chunks/next/dist/client/components/builtin/app-error-cb81799edd088bc9.js",
@@ -672,16 +682,6 @@
       "url": "/_next/static/chunks/app/_global-error/page-cb81799edd088bc9.js",
       "bytes": 165,
       "sha256": "801f3d7a3c94a6391cc056a1c1893e7fc5157afbaa95d8abb6dc240723a39f34"
-    },
-    {
-      "url": "/_next/static/UpTyJJV_AIi584pYLu0YS/_buildManifest.js",
-      "bytes": 862,
-      "sha256": "1f4bf5770384d9dc51f25c4cc3c61f308d18f4dcf5f27f2759602e2a6173ed56"
-    },
-    {
-      "url": "/_next/static/UpTyJJV_AIi584pYLu0YS/_ssgManifest.js",
-      "bytes": 181,
-      "sha256": "5dfb908eec929d1e5df3461e5e8f8d32169d91aaf416164c081ab36869eb6945"
     }
   ]
 }
