@@ -39,6 +39,10 @@ picker=(function enhanceDawSelect(native, host) {
     let lastKey = 0;
     const options = () => Array.from(native.options);
     const enabled = () => options().map((option, index) => !option.disabled && !(option.parentElement instanceof HTMLOptGroupElement && option.parentElement.disabled) ? index : -1).filter(index => index >= 0);
+    const optionSignature = () => JSON.stringify(options().map(option => [
+        option.value, option.label, option.disabled, option.parentElement?.getAttribute("label"),
+        option.parentElement?.hasAttribute("disabled"), option.selected,
+    ]));
     function close() {
         popup?.remove();
         popup = null;
@@ -148,6 +152,7 @@ picker=(function enhanceDawSelect(native, host) {
         (native.closest("dialog[open]") ?? document.body).append(popup);
         active = enabled().includes(native.selectedIndex) ? native.selectedIndex : enabled()[0];
         renderOptions();
+        signature = optionSignature();
         trigger.setAttribute("aria-controls", uid);
         trigger.setAttribute("aria-expanded", "true");
         document.addEventListener("pointerdown", outside, true);
@@ -215,19 +220,24 @@ picker=(function enhanceDawSelect(native, host) {
         open(); }
     function refresh() {
         const label = native.options[native.selectedIndex]?.label ?? "";
-        caption.textContent = label;
+        if (caption.textContent !== label)
+            caption.textContent = label;
         trigger.disabled = native.disabled;
         trigger.setAttribute("aria-label", native.getAttribute("aria-label") || native.labels?.[0]?.textContent?.trim() || label);
         if (native.title)
             trigger.title = native.title;
-        const next = JSON.stringify(options().map(option => [option.value, option.label, option.disabled, option.parentElement?.getAttribute("label"), option.parentElement?.hasAttribute("disabled"), option.selected]));
-        if (popup && next !== signature) {
+        if (!popup)
+            return;
+        if (native.disabled) {
+            close();
+            return;
+        }
+        const next = optionSignature();
+        if (next !== signature) {
             active = native.selectedIndex;
             renderOptions();
+            signature = next;
         }
-        signature = next;
-        if (native.disabled)
-            close();
     }
     trigger.addEventListener("click", toggle);
     trigger.addEventListener("keydown", keyboard);
